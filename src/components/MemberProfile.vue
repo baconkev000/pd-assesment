@@ -4,7 +4,7 @@ const route = useRoute();
 const user = route.query;
 
 const formatDOB = () => {
-  const date = new Date(user.dob);
+  const date = new Date(user.dob.toString());
   const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
   ];
@@ -18,7 +18,7 @@ const formatDOB = () => {
   <div class="wrapper">
     <router-link to="/" class="breadcrumb">&lt; Member List</router-link><br />
     <div class="profile">
-      <img :src="user.img" />
+      <img :src="user.img.toString()" />
     <div class="detail">
         <div><strong>Name:</strong> {{`${user.firstName} ${user.lastName}`}}</div>
         <div><strong>Address:</strong> {{`${user.streetNumber} ${user.streetName}`}}</div>

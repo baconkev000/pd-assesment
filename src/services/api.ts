@@ -23,6 +23,6 @@ export class RandomUserAPI {
    * @param results
    * @returns Promsie
    */
-  static getMultipleRandomUsers = async (results: number, seed = null) =>
+  static getMultipleRandomUsers = async (results: number, seed: string = null) =>
     instance.get('/', { params: { results: results, seed: seed} });
 }
