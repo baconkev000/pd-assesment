@@ -11,9 +11,19 @@ const getFilteredUsers = () => {
   // reset filtered list to intial list of users
   filteredUsers.value = userStore.randomUsers;
   let value = inputSearch.value;
+  const splitVal = value.split(" ");
+  // if there are more than 1 search word return matches where search criterea matches both first and last name
+  if (splitVal.length > 1 && splitVal[0].length > 0 && splitVal[1].length > 0) {
+    filteredUsers.value = filteredUsers.value.filter((user: any) =>
+      (user.name.first.toLowerCase().substr(0, splitVal[0].length) === splitVal[0]
+      || user.name.first.toLowerCase().substr(0, splitVal[1].length) === splitVal[1])
+    && (user.name.last.toLowerCase().substr(0, splitVal[0].length) === splitVal[0]
+        || user.name.last.toLowerCase().substr(0, splitVal[1].length) === splitVal[1]));
+  } else {
+    // creates arry of all users where first name or last name includes the search string 
+    filteredUsers.value = filteredUsers.value.filter((user: any) => user.name.first.toLowerCase().substr(0, splitVal[0].length) === splitVal[0] || user.name.last.toLowerCase().substr(0, splitVal[0].length) === splitVal[0]);
 
-  // creates arry of all users where first name or last name includes the search string 
-  filteredUsers.value = filteredUsers.value.filter((user: any) => user.name.first.toLowerCase().substr(0,value.length) === value || user.name.last.toLowerCase().substr(0,value.length) === value);
+  }
 }
 
 onBeforeMount(async () => {
