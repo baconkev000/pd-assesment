@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppNav from './components/AppNav.vue';
+import AppNav from './components/AppNav.vue'
 </script>
 
 <template>
@@ -9,5 +9,4 @@ import AppNav from './components/AppNav.vue';
   </main>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

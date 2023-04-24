@@ -1,11 +1,11 @@
-import { defineStore } from "pinia";
-import { RandomUserAPI } from "@/services/api";
+import { defineStore } from 'pinia'
+import { RandomUserAPI } from '@/services/api'
 
 export const useUserStore = defineStore({
-  id: "seed",
+  id: 'seed',
   state: () => ({
     currentSeed: null,
-    randomUsers: [],
+    randomUsers: []
   }),
   getters: {},
   actions: {
@@ -14,15 +14,15 @@ export const useUserStore = defineStore({
         try {
           await RandomUserAPI.getMultipleRandomUsers(results, this.currentSeed).then((response) => {
             if (response.data) {
-              this.randomUsers = response.data.results;
-              this.currentSeed = response.data.info.seed;
+              this.randomUsers = response.data.results
+              this.currentSeed = response.data.info.seed
             }
-            return [];
-          });
+            return []
+          })
         } catch {
           // do nothing
         }
       }
-    },
-  },
-});
+    }
+  }
+})
