@@ -1,4 +1,4 @@
-Priority Distpatch Assesment - Kevin Bacon
+Random User API Project - Kevin Bacon
 =====
 
 ## Project Setup

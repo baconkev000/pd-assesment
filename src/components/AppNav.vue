@@ -2,7 +2,6 @@
 
 <template>
   <div class="nav">
-    <img class="logo" src="../assets/PDC_logo_white.png" />
   </div>
 </template>
 
